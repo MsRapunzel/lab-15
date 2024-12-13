@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>PrimeFaces Demo</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    </h:head>
+    <h:body>
+        <!-- SlideMenu Component -->
+        <p:slideMenu style="width:250px;">
+            <p:menuitem value="Home" icon="pi pi-home" url="#" />
+            <p:menuitem value="Profile" icon="pi pi-user" url="#" />
+            <p:menuitem value="Settings" icon="pi pi-cog" url="#" />
+            <p:menuitem value="Logout" icon="pi pi-sign-out" url="#" />
+        </p:slideMenu>
+        <!-- 1. PrimeFaces Buttons -->
+        <p:panel header="Buttons">
+            <p:button value="Primary" />
+            <p:button value="Secondary" styleClass="rounded-button ui-button-secondary" />
+            <p:button value="Success" styleClass="ui-button-success ui-button-flat" />
+            <p:button value="Warning" styleClass="ui-button-warning ui-button-raised ui-button-flat" />
+
+        </p:panel>
+
+        <p:panel header="Confirm Dialog">
+            <p:commandButton value="Delete" icon="pi pi-trash" onclick="PF('confirmDialog').show();" />
+            <p:confirmDialog header="Confirmation" widgetVar="confirmDialog">
+                <h:outputText value="Are you sure you want to delete this item?" />
+                <p:commandButton value="Yes" icon="pi pi-check" onclick="alert('Item deleted!');PF('confirmDialog').hide();" />
+                <p:commandButton value="No" icon="pi pi-times" onclick="PF('confirmDialog').hide();" />
+            </p:confirmDialog>
+        </p:panel>
+
+        <!-- 3. NotificationBar -->
+        <p:panel header="Notification Bar">
+
+            <!-- Button to Trigger Notification -->
+            <p:commandButton value="Show Notification" onclick="PF('notificationBar').show();" />
+
+            <!-- Notification Bar -->
+            <p:notificationBar widgetVar="notificationBar" position="top" style="background-color: #28a745;">
+                <h:outputText value="This is a success notification!" style="color: white;" />
+            </p:notificationBar>
+        </p:panel>
+
+    </h:body>
+</html>
